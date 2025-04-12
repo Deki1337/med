@@ -1,0 +1,321 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {font-family:Faustina;
+}
+    .nav {position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: #333333; /* Tamna pozadina za navbar */
+        width: 100%;
+        height: 66px;
+        z-index: 2;
+    }
+
+ .crta {  display: flex;
+    position: absolute; /* Pozicionira element u odnosu na roditelja */
+    background-color: #d6d317; /* Boja linije */
+    height: 3px; /* Visina linije */
+    width: 100%; /* Širina linije će biti 100% širine ekrana */
+z-index: 5;}
+.crta:hover { background-color: #d6d317;}
+
+    .ul {gap:20px;
+        display: flex;
+        list-style: none;
+    justify-content: space-around;
+        padding: 0;
+        width: auto; /* ako je 100% onda mos pomicat po liniji */
+       /* box-shadow: 0 8px 0px 25px rgba(15, 53, 241, 0.5);*/
+    }
+    
+    .li {
+        position: relative;  /* Potrebno za pozicioniranje pseudo-elementa */
+        color: #fff;
+        font-size: 18px;
+        border-radius: 5px;
+        transition: color 0.3s ease;  /* Glatka promjena boje teksta */
+    }
+    
+    /* Pseudo-element koji će služiti kao linija ispod linka */
+    .li::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;  /* Početna širina (nevidljivo) */
+        height: 2px;  /* Visina linije */
+        background-color: #d6d317;  /* Boja linije */
+        transition: width 0.3s ease;  /* Glatko proširivanje linije */
+    }
+    
+    /* Hover efekat - širenje linije ispod linka */
+    .li:hover::after {
+        width: 100%;  /* Linija se širi do 100% širine linka */
+    }
+    
+    /* Hover efekat za promjenu boje teksta */
+    .li:hover {
+        color: #ffffff;  /* Promjena boje teksta na crnu */
+    }
+    
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+    .logo {
+        position: relative;
+        flex-direction: column;
+        background: url('./Assets/Shiny\ Overlay.svg' ) no-repeat center;
+        background-size: cover; /* Slika će uvek pokriti celu širinu i visinu */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+
+    
+.hero {
+   overflow: hidden; /* Da bi overlay bio vidljiv samo unutar sekcije */
+    display: flex;
+    justify-content: center;
+   align-items: center;
+   min-width: 100%; /* Ako želiš da roditelj zauzme punu širinu ekrana */
+}
+
+
+.skill
+{background-color: #333333;
+    background-size: contain;
+  min-height: 44vh;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+   min-width: 100%;  
+    color: #fff; /* Bijela boja teksta */
+    padding: 20px; /* Unutarnji razmak */ /* Centriranje teksta */
+    z-index: 11;
+    animation: flyIn 1.2s ease-out forwards;
+}
+
+@keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+  }
+ 
+}
+
+
+
+
+.bg-video { 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* puni cijeli prostor */
+  z-index: 0;
+  opacity: 0.8; /* možeš prilagoditi providnost */
+  pointer-events: none; /* da ne smeta klikovima */
+}
+
+
+
+
+
+/* Sekcija unutar roditelja .sekcija i .sekcija */
+.sekcija {
+  position: relative; /* bitno za overlay pozicioniranje */
+  overflow: hidden;
+  padding: 10px; /* Malo unutarnjeg razmaka */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px; /* Zaobljeni kutovi */
+  transition: transform 1.3s ease, box-shadow 0.3s ease; /* Dodan prijelaz za hover efekt */
+}
+
+
+/* Efekt za hover na sekcijama */
+.sekcija:hover{
+  transform: scale(1.05); /* Povećanje na hover */
+  
+}
+
+/* Stilizacija slika unutar sekcija */
+.sekcija img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Slika prekriva cijeli prostor bez izobličenja */
+  border-radius: 10px; /* Zaobljeni kutovi za slike */
+  transition: transform 0.3s ease; /* Prijelaz za povećanje slike */
+}
+
+.berto {
+   width: 100%;
+  height: 100%;
+  object-fit: cover; /* ili contain, ovisno što ti više paše */
+}
+
+
+
+.h1{z-index: 11;
+text-align: center;
+color: #fffffd;
+font-size: clamp(24px, 5vw + 10px, 72px);
+}
+
+
+
+
+
+.logo {
+display: flex;
+flex-direction: column;
+}
+
+
+.footer {height: 200px;
+    display: flex;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+.linija {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.linijaa {height: 3px;
+background-color: #ffe600;
+width: 100%;
+}
+
+
+.par {color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    z-index: 121;
+    }
+  
+
+    .typewriter {
+      display: inline-block;
+      font-family: monospace;
+      color: #d6d317;
+      font-weight: bold;
+      overflow: hidden;
+      border-right: 2px solid #d6d317; /* Kursor */
+      white-space: nowrap;
+      width: 0; /* Početna širina */
+      animation: typing 4s steps(7, end) forwards, blink 0.75s step-end infinite, hideCursor 4s forwards;
+      vertical-align: bottom; /* Poravnava tekst sa linijom */
+    }
+    
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 7ch; } /* "JIRASEK" ima 7 slova */
+    }
+    
+    @keyframes blink {
+      50% { border-color: transparent; } /* Blinka kursor */
+    }
+    
+    @keyframes hideCursor {
+      100% {
+        border-color: transparent; /* Na kraju animacije, crtica nestaje */
+      }
+    }
+    
+
+    .overlay {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #d6d3173e; /* tamni sloj */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* bounce efekt */
+      border-radius: 10px;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+    
+    
+    /* Kad se pređe mišem, zavjesa se spušta */
+    .sekcija:hover .overlay {
+      top: 0;
+    }
+    
+    /* Stil teksta unutar overlaya */
+    .overlay-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+
+
+    .drugi {min-height: 44vh;
+      overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   
+    }
+
+    .sadrzaj {
+      height: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: stretch;
+  }
+
+  .prvi, .drugo {
+    text-align: center;
+    width: 48%; /* Ovdje koristiš 48% širine, kako bi ostavio razmak između dva elementa */
+    padding: 20px; /* Razmak unutar boxa */
+    border: 1px solid #ccc; /* Opcionalno: dodaj okvir oko boxa */
+    border-radius: 8px; /* Opcionalno: za zaobljene kutove */
+    background-color: #f9f9f9; /* Opcionalno: pozadinska boja boxa */
+    
+  }
+  
+
+
+
+  
+  /* Stilovi za naslov i paragraf */
+  .naslov {
+    font-size: 24px;
+    margin-bottom: 10px; /* Razmak između naslova i paragrafa */
+  }
+  
+  .paragraf {
+    font-size: 16px;
+    color: #555; /* Boja za tekst paragrafa */
+    line-height: 1.6; /* Prostor između linija paragrafa */
+  }
